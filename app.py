@@ -15,8 +15,16 @@ if st.button("Analyze Sentiment"):
     # Get the sentiment of the text
     sentiment = blob.sentiment
 
+    # Check if the sentiment is positive or negative
+    if sentiment.polarity > 0:
+        sentiment_text = "Positive"
+    elif sentiment.polarity < 0:
+        sentiment_text = "Negative"
+    else:
+        sentiment_text = "Neutral"
+
     # Print the sentiment
-    st.write("Sentiment:", sentiment)
+    st.write("Sentiment:", sentiment_text)
 
     # Display the polarity and subjectivity of the text
     st.write("Polarity:", sentiment.polarity)
